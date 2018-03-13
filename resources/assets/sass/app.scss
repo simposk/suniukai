@@ -1,14 +1,182 @@
+@import url("_normalize.css");
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+/* VARIABLES */
 
-// Variables
-@import "variables";
+$primary: #519d9e;
+$secondary: #9dc8c8;
+$contrast: #c89dbf;
+$background: #f0f9f8;
+$text: #263238;
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+/* VARIABLES */
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+html, body, #app {
+    width: 100%;
+    font-family: 'Merriweather', serif;
+    background-color: $background;
+    color: $text;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav {
+    width: 100%;
+    height: 80px;
+    background: $primary;
+
+    // margin-bottom: 50px;
+
+    .navbar-brand {
+        display: inline-block;
+        font-size: 25px;
+        color: white;
+        margin-top: 25px;
+        font-weight: 900;
+
+        &:hover {
+            color: $contrast;
+            text-decoration: underline;
+        }
+    }
+
+    .right {
+        float: right;
+        ul {
+            margin-top: 30px;
+            li {
+                display: inline-block;
+                margin-left: 10px;
+
+                a {
+                    color: white;
+                    &:hover {
+                        color: $contrast;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.ads-container {
+    margin-top: 50px;
+    h2 {
+        color: $text;
+        font-size: 40px;
+        margin-bottom: 5px;
+    }
+
+    .search {
+        width: 60%;
+        margin: 0 auto 40px auto;
+
+        input {
+            width: 80%;
+            height: 40px;
+            border: 1.8px solid $contrast;
+            border-top-left-radius: 12px;
+            border-bottom-left-radius: 12px;
+            padding-left: 25px; 
+            background-color: $background;
+            display: inline-block;
+            color: $contrast;
+            font-style: italic;
+        }
+        ::placeholder {
+            font-style: italic;
+            color: $contrast;
+        }
+
+        button {
+            height: 46px;
+            width: 70px;
+            border: 1.8px solid $contrast;
+            background-color: $contrast;
+            margin-left: -6px;
+            border-top-right-radius: 12px;
+            border-bottom-right-radius: 12px;
+            color: white;
+
+            &:hover {
+                // background-color: $grey;
+            }
+        }
+    }
+
+    .ad {
+        background-color: $secondary;
+        width: 100%;
+        margin-bottom: 25px;
+
+        .content {
+            height: 250px;
+            width: 100%;
+
+            .ad-thumb {
+                margin-right: 40px; 
+                float: left;
+                // clear: both;
+
+                img {
+                    width: 250px;
+                    display: block;
+                }
+            }
+
+            .clearfix {
+                overflow: auto;
+            }
+            
+            .text {
+                .title, .body {
+                    position: relative;
+                    top: 25px;
+                }
+                .title {    
+                    a {
+                        color: $text;
+                        font-size: 33px;
+                        padding-top: 15px;
+
+                        &:hover {
+                            color: $contrast;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .body {
+                    ul {
+                        li {
+                            font-style: italic;
+                            display: inline-block;
+                            text-decoration: none;
+                            font-size: 15px;
+                            margin-right: 40px;
+                        }
+                    }
+                }
+
+                .type {
+                    position: relative;
+                    float: right;
+                    top: -102px;
+                    border: 1px solid $contrast;
+                    border-bottom-left-radius: 12px;
+                    background-color: $contrast;
+                    color: white;
+                    padding: 15px 25px; 
+                }
+            }
+        }
+    }
 }
