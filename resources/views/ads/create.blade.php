@@ -1,53 +1,46 @@
 @extends('layouts.app')
-
 @section('content')
+@include('layouts.nav')
 
 <div class="container">
-    <h3>Kurti skelbimą:</h3>
-    <form action="/ads" method="POST">
+    <h2 style="text-align: center">Create an Ad:</h2>
+
+    <form action="/ads" method="POST" class="create-ad">
         {{ csrf_field() }}
         
         <div class="form-group">
-            <label for="type">Paslaugos tipas:</label>
-            <select name="type" id="type" class="form-control">
-                <option>Pasirinkite</option>
-                <option value="ieškau">Ieškau</option>
-                <option value="siulau">Siūlau</option>
+            <select name="type" id="type" class="form-control" style="max-width: 92% !important; min-width: 92% !important">
+                <option>Choose option</option>
+                <option value="seeking">Seeking</option>
+                <option value="offering">Offering</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="title">Pavadinimas:</label>
-            <input type="text" name="title" class="form-control">
+            <input type="text" name="title" class="form-control" placeholder="Title">
         </div>
         <div class="form-group">
-            <label for="body">Tekstas:</label>
-            <textarea name="body" id="body" class="form-control"></textarea>
+            <textarea name="body" id="body" class="form-control">Body</textarea>
         </div>
 
         <div class="form-group">
-            <label for="price">Valandinė kaina:</label>
-            <input type="text" name="price" class="form-control">
+            <input type="number" name="price" class="form-control" placeholder="Price">
         </div>
 
         <div class="form-group">
-            <label for="phone_number">Telefono numeris:</label>
-            <input type="text" name="phone_number" class="form-control">
+            <input type="text" name="phone_number" class="form-control" placeholder="Phone number">
         </div>
 
         <div class="form-group">
-            <label for="email">El. pašto adresas:</label>
-            <input type="email" name="email" class="form-control">
+            <input type="email" name="email" class="form-control" placeholder="Email">
         </div>
 
         <div class="form-group">
-            <label for="city">Miestas:</label>
-            <input type="text" name="city" class="form-control">
+            <input type="text" name="city" class="form-control" placeholder="City">
         </div>
 
         <div class="form-group">
-            <label for="area">Mikrorajonas:</label>
-            <input type="text" name="area" class="form-control">
+            <input type="text" name="area" class="form-control" placeholder="Area">
         </div>
 
         <div class="form-group">
@@ -55,8 +48,8 @@
         </div>
     </form>
 
-    <small>
-        <a href="../home">Atgal</a>
+    <small class="back">
+        <a class="link" href="../home">Back</a>
     </small>
 </div>
 

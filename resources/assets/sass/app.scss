@@ -12,14 +12,103 @@ $text: #263238;
 
 html, body, #app {
     width: 100%;
-    font-family: 'Merriweather', serif;
+    height: 100%;
     background-color: $background;
     color: $text;
-    letter-spacing: 1px;
+    letter-spacing: .5px;
+    line-height: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+}
+
+h1 {
+    color: $text;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: $text;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: $text;
+    font-size: 30px;
+    margin-bottom: 5px;   
+    line-height: 35px;
 }
 
 a {
     text-decoration: none;
+}
+
+form {
+    .form-group {
+        width: 100%;
+        margin-bottom: 25px;
+        text-align: center;
+
+        .form-control {
+            min-width: 90%;
+            max-width: 90%;
+            height: 60px;
+            border: 2px solid $primary;
+            border-radius: 12px;
+            padding-left: 25px; 
+            background-color: $background;
+            display: inline-block;
+            color: $primary;
+            font-style: italic;
+        }
+
+        textarea {
+            padding-top: 45px;
+
+        }
+        ::placeholder {
+            font-style: italic;
+            color: $primary;
+        }
+    }
+}
+
+.link {
+    color: $text;
+
+    &:hover {
+        color: $contrast;
+        text-decoration: underline;
+    }
+}
+
+.back {
+    font-size: 20px;
+    padding-bottom: 45px;
+}
+
+.date {
+    font-style: italic;
+}
+
+.btn-primary {
+    border: 1px solid $primary;
+    background: $primary;
+    border-radius: 12px;
+    color: white;
+    width: 100px;
+    font-size: 20px;
+    padding: 10px 15px;
+
+    &:hover {
+        background: lighten($primary, 10%);
+        cursor: pointer;
+    }
 }
 
 .nav {
@@ -50,6 +139,17 @@ a {
                 display: inline-block;
                 margin-left: 10px;
 
+                .logout {
+                    border: none;
+                    background: transparent;
+                    color: white;
+                    &:hover {
+                        color: $contrast;
+                        text-decoration: underline;
+                        cursor: pointer;
+                    }
+                }
+
                 a {
                     color: white;
                     &:hover {
@@ -68,12 +168,7 @@ a {
 }
 
 .ads-container {
-    margin-top: 50px;
-    h2 {
-        color: $text;
-        font-size: 40px;
-        margin-bottom: 5px;
-    }
+    margin: 50px auto 0 auto;
 
     .search {
         width: 60%;
@@ -81,26 +176,27 @@ a {
 
         input {
             width: 80%;
-            height: 40px;
-            border: 1.8px solid $contrast;
+            height: 60px;
+            border: 2px solid $primary;
             border-top-left-radius: 12px;
             border-bottom-left-radius: 12px;
             padding-left: 25px; 
             background-color: $background;
             display: inline-block;
-            color: $contrast;
+            color: $primary;
             font-style: italic;
         }
         ::placeholder {
             font-style: italic;
-            color: $contrast;
+            color: $primary;
         }
 
         button {
-            height: 46px;
+            position: absolute;
+            height: 66px;
             width: 70px;
-            border: 1.8px solid $contrast;
-            background-color: $contrast;
+            border: 4px solid $primary;
+            background-color: $primary;
             margin-left: -6px;
             border-top-right-radius: 12px;
             border-bottom-right-radius: 12px;
@@ -111,72 +207,259 @@ a {
             }
         }
     }
+    
+    .ads {
+        margin-top: 50px;
+    }
 
     .ad {
         background-color: $secondary;
         width: 100%;
         margin-bottom: 25px;
+        border-radius: 12px;
 
         .content {
-            height: 250px;
-            width: 100%;
+            position: relative;
 
             .ad-thumb {
-                margin-right: 40px; 
-                float: left;
-                // clear: both;
+                width: 250px;
+                display: inline-block;
 
                 img {
-                    width: 250px;
-                    display: block;
+                    max-width: 100%;
+                    min-width: 100%;
+                    width: 100%;
+                    margin-bottom: -5px;
+                    border: 2px solid $secondary;
+                    border-top-left-radius: 12px;
+                    border-bottom-left-radius: 12px;
                 }
+            }            
+            
+            .type {
+                border: 1px solid $contrast;
+                border-bottom-left-radius: 12px;
+                border-top-right-radius: 12px;
+                background-color: $contrast;
+                color: white;
+                padding: 15px 25px; 
+                font-weight: 700;
+                letter-spacing: 1.2px;
+                position: absolute;
+                right: 0px;
+                z-index: 2;
+                top: 0px;
             }
 
-            .clearfix {
-                overflow: auto;
-            }
-            
             .text {
-                .title, .body {
-                    position: relative;
-                    top: 25px;
-                }
+                display: inline-block;
+                position: absolute;
+                margin-left: 50px;
+                margin-top: 60px;
+                margin-right: 50px;
+
                 .title {    
                     a {
-                        color: $text;
+                        line-height: 25px;
                         font-size: 33px;
-                        padding-top: 15px;
-
-                        &:hover {
-                            color: $contrast;
-                            text-decoration: underline;
+                        h5 {
+                            margin: 0;
+                            padding: 0;
                         }
                     }
                 }
 
                 .body {
                     ul {
+                        margin-left: -40px;
                         li {
-                            font-style: italic;
                             display: inline-block;
                             text-decoration: none;
                             font-size: 15px;
-                            margin-right: 40px;
+                            margin-right: 20px;
                         }
                     }
                 }
+            }
+        }
+    }
+}
+//////////////////////////////// ads. show ////////////////////////////////
+.ads-show {
+    width: 100%;
+    background: $secondary;
+    border: 1px solid $secondary;
+    border-radius: 12px;
+    position: relative;
+    margin-bottom: 50px;
 
-                .type {
-                    position: relative;
-                    float: right;
-                    top: -102px;
-                    border: 1px solid $contrast;
-                    border-bottom-left-radius: 12px;
-                    background-color: $contrast;
-                    color: white;
-                    padding: 15px 25px; 
+    .ads-photos {
+        height: 100px;
+        width: 525px;
+        // background: $contrast;
+        z-index: 2;
+        position: absolute;
+        right: 27px;
+        bottom: 27px;
+        .slider {
+            .image {
+                width: 100%;
+                display: inline-block;
+                img {
+                    max-width: 100px;
+                    // width: 100px;
+                    display: inline-block;
+                    float: left;
+                    margin-right: 5px;
                 }
             }
         }
+    }
+
+    .text {
+        padding-top: 40px;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 40px;
+        line-height: 23px;
+    }
+
+    .type {
+        border: 1px solid $contrast;
+        border-bottom-left-radius: 12px;
+        border-top-right-radius: 12px;
+        background-color: $contrast;
+        color: white;
+        padding: 15px 25px; 
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        position: absolute;
+        right: -1px;
+        z-index: 2;
+        top: -1px;
+    }
+}
+
+.ads-contact {
+    width: 100%;
+    background: $secondary;
+    border: 1px solid $secondary;
+    border-radius: 12px;
+    position: relative;
+    display: block;
+
+    h3 {
+        text-align: center;
+    }
+
+    .text {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 40px;
+        line-height: 23px;
+
+        textarea {
+            min-height: 110px;
+        }
+    }
+}
+// HOME
+.home {
+    margin-top: 120px;
+    .card {
+        background: white;
+        border: 1px solid $primary;
+        border-radius: 12px;
+
+        .card-header {
+            background: $primary;
+            border: 1px solid $primary;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            text-align: center;
+            padding: 10px 0 10px 0;
+
+            span {
+                font-size: 22px;
+                color: white;
+            }
+        }
+
+        .card-body {
+            padding: 25px;
+            a {
+                font-size: 15px;
+            }
+            .info {
+                font-size: 19px;
+                margin-right: 50px;
+            }
+        }
+    }
+}
+
+.create-ad {
+    margin-top: 33px;
+}
+
+// Pradinis puslapis HERO
+#hero {
+    height: 100%;
+    width: 100%;
+    background: url('../images/bg7.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h1 {
+        margin-top: 0;
+    }
+
+    .text {
+        padding-top: 350px;
+        // padding-left: 100px;
+        text-align: center;
+
+        h1, h2, a {
+            color: white;
+        }
+
+        h2 {
+            margin-bottom: 35px;
+        }
+
+        .call-to-action {
+            border: 2px solid white;
+            border-radius: 12px;
+            padding: 10px 15px;
+
+            &:hover {
+                background: white;
+                color: $text;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// Auth
+.auth {
+    h3 {
+        text-align: center;
+        padding-bottom: 15px;
+    }
+
+    .checkbox {
+        text-align: left;
+        margin-left: 42px;
+    }
+
+    .btn {
+        float: left;
+        margin-left: 42px;
+    }
+
+    .forgot-password {
+        margin-top: 15px;
     }
 }

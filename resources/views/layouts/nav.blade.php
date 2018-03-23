@@ -21,7 +21,10 @@
                     </li>
 
                     <li>
-                        <a href="#" class="nav-link">Log Out</a>
+                        <form action="/logout" method="POST">
+                            {{ csrf_field() }}
+                            <button type="submit" class="logout">Log Out</button>
+                        </form>
                     </li>
                 @endif
             </ul>

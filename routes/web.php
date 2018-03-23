@@ -19,3 +19,4 @@ Route::get('/pradinis', 'StaticPagesController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user/ads', 'UsersController@index');
 Route::get('/users/{user}', 'UsersController@show');
+Route::post('/users/{user}/avatar', 'UserAvatarController@store')->middleware('auth')->name('avatar');

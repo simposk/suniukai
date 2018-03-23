@@ -12,12 +12,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i,900&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800|Roboto:400,700&amp;subset=latin-ext" rel="stylesheet">
     
 </head>
 <body>
     <div id="app">
-        @include('layouts.nav')
         @yield('content')            
     </div>
 
